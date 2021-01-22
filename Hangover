@@ -1,0 +1,20 @@
+#include <stdio.h>
+int main()
+{
+    float n,s;
+    int i;
+    scanf("%f",&n);
+    while(n!=0)
+    {
+        i=1;
+        s=0;
+        while(s<=n)
+        {
+            s+=1.0/(i+1);
+            i++;
+        }
+        printf("%d card(s)\n",--i);
+        scanf("%f",&n);
+    }
+    return 0;
+}
