@@ -1,0 +1,39 @@
+#include <stdio.h>
+int main()
+{
+    int a,d,a_0,d_0,d_1,i,j,min_d;
+    char c;
+    scanf("%d %d",&a,&d);
+    while(a&&d)
+    {
+        a_0=d_0=min_d=10000;
+        int A[a],D[d];
+        for(i=0;i<a;i++)
+        {
+            scanf("%d%c",&A[i],&c);
+            if(A[i]<a_0)
+                a_0=A[i]; // retreiving the minimum distance of attacker
+        }
+        for(i=0;i<d;i++)
+        {
+            scanf("%d%c",&D[i],&c);
+            if(D[i]<d_0)
+            {
+                d_0=D[i]; // retreiving the minimum distance of defender
+                j=i;
+            }
+        }
+        for(i=0;i<d;i++)
+            if(j!=i && (D[i]-d_0<min_d))
+            {
+                min_d=D[i]-d_0; // distance between two defender
+                d_1=D[i];    //retreiving the second minimum distance of defender
+            }
+        if(d_1>a_0)
+            printf("Y\n");
+        else
+            printf("N\n");
+        scanf("%d %d",&a,&d);
+    }
+    return 0;
+}
