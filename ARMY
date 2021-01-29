@@ -1,0 +1,41 @@
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t,ng,nm,i,j;
+    char c;
+    cin>>t;
+    while(t--)
+    {
+        cin>>ng>>nm;
+        int G[ng],M[nm];
+        for(i=0;i<ng;i++)
+            cin>>G[i];
+        for(i=0;i<nm;i++)
+            cin>>M[i];
+        sort(G,G+int(sizeof(G)/sizeof(G[0])));
+        sort(M,M+int(sizeof(M)/sizeof(M[0])));
+        i=j=0;
+        while(ng&&nm)
+        {
+            if(G[i]<M[j])
+            {
+                ng--;
+                i++;
+            }
+            else
+            {
+                nm--;
+                j++;
+            }
+        }
+        if(ng>0)
+            cout<<"Godzilla"<<endl;
+        else if(nm>0)
+            cout<<"MechaGodzilla"<<endl;
+        else
+            cout<<"uncertain"<<endl;
+    }
+    return 0;
+}
