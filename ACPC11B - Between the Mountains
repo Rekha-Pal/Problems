@@ -1,0 +1,37 @@
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t,n,m,i,j,min,d;
+    cin>>t;
+    while(t--)
+    {
+        cin>>n;
+        int M1[n];
+        for(i=0;i<n;i++)
+            cin>>M1[i];
+        cin>>m;
+        int M2[m];
+        for(i=0;i<m;i++)
+            cin>>M2[i];
+        sort(M1,M1+sizeof(M1)/sizeof(M1[0]));
+        sort(M2,M2+sizeof(M2)/sizeof(M2[0]));
+        i=j=0;
+        min=999999;
+        while(i<n&&j<m)
+        {
+            d=abs(M1[i]-M2[j]);
+            if(d<min)
+                min=d;
+            if(M1[i]<M2[j])
+                i++;
+            else if(M1[i]>M2[j])
+                j++;
+            else
+                break;
+        }
+        cout<<min<<endl;
+    }
+    return 0;
+}
