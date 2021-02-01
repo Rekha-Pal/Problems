@@ -1,0 +1,14 @@
+#include <stdio.h>
+int main()
+{
+    long long int n;
+    scanf("%lld",&n);
+    if(n%10)
+    {
+        printf("1\n");
+        printf("%lld",n%10);
+    }
+    else
+        printf("2\n");
+    return 0;
+}
