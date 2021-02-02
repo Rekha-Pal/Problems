@@ -1,0 +1,40 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    int t,at,bt,i,lp,rp,minsum,sum,ws;
+    cin>>t;
+    while(t--)
+    {
+        lp=rp=minsum=sum=ws=0;
+        cin>>at;
+        cin>>bt;
+        int A[at];
+        for(i=0;i<at;i++)
+            cin>>A[i];
+        for(i=0;i<at;i++)
+        {
+            rp=i;
+            if(sum+A[i]<=bt)
+            {
+                sum+=A[i];
+                if(ws<rp-lp+1 || sum<minsum)
+                {
+                    minsum=sum;
+                    ws=rp-lp+1;
+                }
+            }
+            else
+            {
+                sum = sum - A[lp] + A[i];
+                ++lp;
+                if(ws<rp-lp+1 || sum<minsum)
+                {
+                    minsum=sum;
+                    ws=rp-lp+1;
+                }
+            }
+        }
+        cout<<minsum<<" "<<ws<<endl;
+    }
+}
