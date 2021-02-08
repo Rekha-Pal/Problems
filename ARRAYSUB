@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    int n,k,i,j,max;
+    cin>>n;
+    int A[n];
+    for(i=0;i<n;i++)
+        cin>>A[i];
+    cin>>k;
+    int B[n-k+1];
+    max=0;
+    for(i=0;i<k;i++)
+    {
+        if(A[i]>max)
+            max=A[i];
+    }
+    B[0]=max;
+    for(;i<n;i++)
+    {
+        if(A[i-k]==max)
+            if(A[i-k]<=A[i])
+                max=A[i];
+            else
+            {
+                max=0;
+                for(j=i-k+1;j<=i;j++)
+                    if(A[j]>max)
+                        max=A[j];
+            }
+        else
+            if(A[i]>max)
+                max=A[i];
+        B[i-k+1]=max;
+    }
+    for(i=0;i<n-k+1;i++)
+        cout<<B[i]<<" ";
+}
