@@ -1,0 +1,38 @@
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+void findprime(long long,long long);
+bool isprime(long long);
+int main() {
+
+	int t;
+	cin>>t;
+	long long m ,n;
+	while(t--)
+	{
+		cin>>m>>n;
+		findprime(m,n);
+	}
+	return 0;
+}
+void findprime(long long m, long long n)
+{
+    for(int i=m;i<=n;i++)
+        if(isprime(i))
+            cout<<i<<endl;
+}
+bool isprime(long long p)
+{
+    if(p<=1)
+        return false;
+    if(p==2 || p==3)
+        return true;
+    if(p%2==0 || p%3==0)
+        return false;
+    for(int i=5;i*i<=p;i =i+6)
+    {
+        if(p%i==0 || p%(i+2)==0)
+            return false;
+    }
+    return true;
+}
